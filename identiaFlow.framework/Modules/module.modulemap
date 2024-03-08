@@ -1,0 +1,11 @@
+framework module identiaFlow {
+  umbrella header "identiaFlow.h"
+  export *
+
+  module * { export * }
+}
+
+module identiaFlow.Swift {
+  header "identiaFlow-Swift.h"
+  requires objc
+}

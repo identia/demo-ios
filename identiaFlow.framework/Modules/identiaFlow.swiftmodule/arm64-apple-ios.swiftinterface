@@ -1,0 +1,45 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name identiaFlow
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import Swift
+import SwiftUI
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_exported import identiaFlow
+public struct WebView : SwiftUI.UIViewRepresentable {
+  public let urlString: Swift.String
+  @SwiftUI.Binding @_projectedValueProperty($messageFromWeb) public var messageFromWeb: Swift.String? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    nonmutating set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    nonmutating _modify
+  }
+  public var $messageFromWeb: SwiftUI.Binding<Swift.String?> {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func makeUIView(context: identiaFlow.WebView.Context) -> WebKit.WKWebView
+  @_Concurrency.MainActor(unsafe) public func updateUIView(_ uiView: WebKit.WKWebView, context: identiaFlow.WebView.Context)
+  @_Concurrency.MainActor(unsafe) public func makeCoordinator() -> identiaFlow.WebView.Coordinator
+  @objc @_hasMissingDesignatedInitializers public class Coordinator : ObjectiveC.NSObject, WebKit.WKNavigationDelegate {
+    @objc public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, preferences: WebKit.WKWebpagePreferences, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy, WebKit.WKWebpagePreferences) -> Swift.Void)
+    @objc deinit
+  }
+  public typealias Body = Swift.Never
+  public typealias UIViewType = WebKit.WKWebView
+}
+public struct IdentiaFlowView : SwiftUI.View {
+  public var endPoint: Swift.String
+  public var idSession: Swift.String
+  public var style: Swift.String
+  public var onComplete: ((Swift.String) -> Swift.Void)?
+  public init(idSession: Swift.String, endPoint: Swift.String, style: Swift.String = "", onComplete: ((Swift.String) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public var body: some SwiftUI.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s11identiaFlow07IdentiaB4ViewV4bodyQrvp", 0) __
+}
